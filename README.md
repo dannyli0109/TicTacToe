@@ -43,4 +43,9 @@
 #### determine whether a player has won
 - after a player place a node, the game calls a function `game.checkGameOver()` to decide whether a player has won
   - it checks: if any of the wining combination cells have all of the elements of the occupiedCellPlayer with the same object, but not undefined
-  - if it is true, change the game state and blocking the user from any mouse event inside the canvas
+  - if it is true, change the game state and blocking the user from any mouse event inside the canvas, increments the score of the player by 1
+  - if the all of the cells are not undefined and did not met the condition of wining, the game draw
+---
+#### features
+- player can enter name and grid size up to 10 by 10
+- the game keep track of each player's score

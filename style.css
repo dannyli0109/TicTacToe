@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+}
+
+h1, .log, .score{
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Indie Flower', cursive;
+  font-size: 50px;
+  margin: 0;
+  margin-top: 50px;
+  color: white
+}
+
+#defaultCanvas0 {
+  display: inherit;
+  margin: 0 auto;
+  width: 100%
+}
+
+.log, .score{
+  font-size: 30px;
+  color: white;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+body {
+   background: linear-gradient(to right, #000428 , #004e92);
+
+}
+
+.selections *{
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  height: 40px;
+}
+
+.selections {
+  padding: 0;
+  display: block;
+  text-align: center;
+}
+
+.selectionHide {
+  display: none;
+}
+
+#playGameButton:hover {
+  background-color: darkGray;
+}
