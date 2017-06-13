@@ -4,7 +4,8 @@ var board
 
 var game = {
   board:[],
-  players:[]
+  players:[],
+  currentPlayer = players[0]
 }
 
 var initBoard = function(rows, cols) {
@@ -20,8 +21,8 @@ var initBoard = function(rows, cols) {
 }
 
 
-game.players.push(new Player("player1"))
-game.players.push(new Player("player2"))
+game.players.push(new Player("player1", 0))
+game.players.push(new Player("player2", 1))
 game.board = initBoard(3,3)
 
 function setup() {
@@ -30,7 +31,7 @@ function setup() {
 
 
 function draw() {
-  background(0)
+  background(255)
   for (var i = 0; i <  game.board.length; i++) {
     for (var j = 0; j < game.board[0].length; j++) {
       game.board[i][j].display()
@@ -38,4 +39,12 @@ function draw() {
   }
 }
 
+function mousePressed() {
+  for (var i = 0; i <  game.board.length; i++) {
+    for (var j = 0; j < game.board[0].length; j++) {
+      if (game.board[i][j].contains(mouseX, mouseY)) {
+        game.board[i][j].occupiedPlayer = game.players[0 % 2]
+      }
+    }
+  }
 }
