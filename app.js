@@ -6,12 +6,15 @@ var game = {
   board:[],
   players:[],
   winPatterns: [],
+  state: 0,
   checkGameOver: function() {
-    for (var i = 0; i <  game.board.length; i++) {
-      for (var j = 0; j < game.board[0].length; j++) {
-        
-      }
+
+    if (game.winPatterns.some(pattern => pattern.every(cell => (cell.occupiedCellPlayer === pattern[0].occupiedCellPlayer) && cell.occupiedCellPlayer !== undefined))) {
+      game.state = 1;
+      return true
     }
+    return false;
+
   },
   determineWinPattern: function() {
     var returnPattern = [];
@@ -75,7 +78,8 @@ game.turn = 0
 game.winPatterns = game.determineWinPattern()
 
 function setup() {
-  createCanvas(301, 301)
+  var canvas = createCanvas(301, 301)
+  canvas.parent("gameArea")
 }
 
 
@@ -89,11 +93,20 @@ function draw() {
 }
 
 function mousePressed() {
+  if (game.state > 0){
+    return
+  }
   for (var i = 0; i <  game.board.length; i++) {
     for (var j = 0; j < game.board[0].length; j++) {
       if (game.board[i][j].contains(mouseX, mouseY)) {
         if (!game.board[i][j].occupiedCellPlayer) {
           game.board[i][j].occupiedCellPlayer = game.players[game.turn % game.players.length]
+
+          if (game.checkGameOver()) {
+            console.log(game.players[game.turn % game.players.length].name + " won!");
+            return
+          }
+
           game.turn ++
         }
       }
