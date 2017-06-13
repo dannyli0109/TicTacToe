@@ -4,16 +4,15 @@ var Cell = function(i, j, width) {
   this.x = i * width
   this.y = j * width
   this.width = width
-  this.occupiedPlayer
+  this.occupiedCellPlayer
 }
 
 Cell.prototype.display = function() {
   noFill()
   stroke(0)
   rect(this.x,this.y,this.width,this.width)
-  if (this.occupiedPlayer) {
-    this.occupiedPlayer.display(this.x, this.y, this.width)
-     
+  if (this.occupiedCellPlayer) {
+    this.occupiedCellPlayer.placeNode(this.x, this.y, this.width)
   }
 }
 
