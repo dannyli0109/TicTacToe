@@ -49,3 +49,6 @@
 #### features
 - player can enter name and grid size up to 10 by 10
 - the game keep track of each player's score
+---
+#### website
+https://dannyli0109.github.io/TicTacToe/

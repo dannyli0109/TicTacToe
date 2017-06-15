@@ -83,11 +83,11 @@ var game = {
       }
     }
 
-    cellWidth = 100
+    cellWidth = CELL_WIDTH_WIDE
     if (boardSize*cellWidth+1 > MAX_WIDTH) {
-      cellWidth = 60
+      cellWidth = CELL_WIDTH_NARROW
     } else {
-      cellWidth = 100
+      cellWidth = CELL_WIDTH_WIDE
     }
 
     game.board = initBoard(boardSize, boardSize, cellWidth)

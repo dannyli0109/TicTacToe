@@ -1,9 +1,12 @@
 
 var cellWidth = 100;
-var MIN_WIDTH = 301;
-var MIN_HEIGHT = 301;
+
 var MAX_WIDTH = 501;
 var MAX_HEIGHT = 501;
+var ENTER_KEY_CODE = 13;
+var CELL_WIDTH_NARROW = 60;
+var CELL_WIDTH_WIDE = 100;
+
 var board
 var canvas
 var logMessages = document.querySelectorAll(".log")
@@ -44,15 +47,16 @@ function initGame() {
   var size = boardSize.selectedIndex + 3
 
   if (size*cellWidth+1 > MAX_WIDTH) {
-    cellWidth = 60
+    cellWidth = CELL_WIDTH_NARROW
   } else {
-    cellWidth = 100
+    cellWidth = CELL_WIDTH_WIDE
+
   }
 
   if (size*cellWidth+1 > MAX_HEIGHT) {
-    cellWidth = 60
+    cellWidth = CELL_WIDTH_NARROW
   } else {
-    cellWidth = 100
+    cellWidth = CELL_WIDTH_WIDE
   }
   game.init(playerNames[0].value, playerNames[1].value, size)
 
@@ -95,8 +99,7 @@ function mousePressed() {
             logMessages[1].innerHTML = "Press Enter to restart"
             return
           }
-
-          game.turn ++
+          game.turn++
         }
       }
     }
@@ -105,7 +108,7 @@ function mousePressed() {
 
 function keyPressed() {
   if (game.state > 0){
-    if (keyCode == 13) {
+    if (keyCode == ENTER_KEY_CODE) {
       initGame()
     }
   }
