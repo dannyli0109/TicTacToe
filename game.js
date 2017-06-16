@@ -10,17 +10,16 @@ var game = {
       var result = pattern.every(cell => (cell.occupiedCellPlayer === pattern[0].occupiedCellPlayer) && cell.occupiedCellPlayer !== undefined)
       if (result) {
         game.winLine = pattern
-
       }
       return result
     })) {
-      game.state = 1;
-      return 1
-    } else if (game.board.every(row => row.every(cell => cell.occupiedCellPlayer != undefined))){
-      game.state = 1;
-      return 2
+      game.state = FINISHED;
+      return WIN
+    } else if (game.board.every(row => row.every(cell => cell.occupiedCellPlayer !== undefined))){
+      game.state = FINISHED;
+      return DRAW
     }
-    return 0;
+    return CONTINUE;
 
   },
   determineWinPattern: function() {

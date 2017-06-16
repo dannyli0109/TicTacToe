@@ -1,11 +1,12 @@
 # TicTacToe
-#### start with logic
+#### initial thought
 - for a board game, we need a board
   - 2d array of cells
-- we need cell objects inside the board array
-- we need player objects
+- cell objects inside the board array
+- player objects
   - with varible:
     - name
+    - score
 - we need win condition
   - store all possible win conditions in an array
 ---
@@ -19,9 +20,10 @@
   - y is the starting y position of the cell (for drawing)
   - width is the width of the cell (for drawing)
   - occupiedCellPlayer will be undefined by default, a player object will be placed when a player place a node on the cell
+- game object contains the board and the state of the game
 ---
 #### determine wining pattern
-- uses variables to make wining pattern scalable
+- calculate the win pattern to make the game scalable
 - `game.determineWinPattern()` determines the wining pattern of the cell
   - row wins pattern:
     - if all columns of a row is matched
@@ -32,13 +34,12 @@
     - if `game.board[i][lastIndex - i]` matched
 ---
 #### determine whose turn is
-- `game.turn` keep track of player's turn, every time a player place a node, if the game is not over game.turn increments
+- `game.turn` keep track of player's turn, every time a player place a node, if the game is not over game, turn increments
 - using `game.players[game.turn % game.players.length]` keeps track of the current player as the turn start from 0
   - 0 % 2 is 0
   - 1 % 2 is 1
   - 2 % 2 is 0
   - 3 % 2 is 1 and so on
-  - so i don't need to have another variable to keep track of the current player
 ---
 #### determine whether a player has won
 - after a player place a node, the game calls a function `game.checkGameOver()` to decide whether a player has won
@@ -47,8 +48,10 @@
   - if the all of the cells are not undefined and did not met the condition of wining, the game draw
 ---
 #### features
-- player can enter name and grid size up to 10 by 10
+- player can enter name and select grid size up to 10 by 10
 - the game keep track of each player's score
 ---
+#### libraries
+- p5js
 #### website
 https://dannyli0109.github.io/TicTacToe/

@@ -1,11 +1,15 @@
 
 var cellWidth = 100;
-
 var MAX_WIDTH = 501;
 var MAX_HEIGHT = 501;
 var ENTER_KEY_CODE = 13;
 var CELL_WIDTH_NARROW = 60;
 var CELL_WIDTH_WIDE = 100;
+var WIN = 1;
+var DRAW = 2;
+var CONTINUE = 0;
+var FINISHED = 1;
+
 
 var board
 var canvas
@@ -77,7 +81,7 @@ function draw() {
 }
 
 function mousePressed() {
-  if (game.state > 0){
+  if (game.state > CONTINUE){
     return
   }
   for (var i = 0; i <  game.board.length; i++) {
@@ -107,7 +111,7 @@ function mousePressed() {
 }
 
 function keyPressed() {
-  if (game.state > 0){
+  if (game.state > CONTINUE){
     if (keyCode == ENTER_KEY_CODE) {
       initGame()
     }

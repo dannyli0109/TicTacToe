@@ -15,6 +15,7 @@ h1, .log, .score{
 #defaultCanvas0 {
   display: inherit;
   margin: 0 auto;
+  margin-bottom: 10px;
   width: 100%
 }
 
